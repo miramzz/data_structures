@@ -8,7 +8,7 @@
 
 <h4>Doubly Link List<br\></h4>
 <h5>Branch : dll</h5>
-<h6>Supported Methods :<br\></h6>
+<h6>Supported Methods :</h6>
     insert(val) will insert the value 'val' at the head of the list
     append(val) will append the value 'val' at the tail of the list
     pop() will pop the first value off the head of the list and return it.

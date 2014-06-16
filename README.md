@@ -7,9 +7,9 @@
 
 
 <h5>Doubly Link List</h5>
-<p>Branch : dll </p>
-<p>Supported Methods :</p>
-<p>insert(val) will insert the value 'val' at the head of the list
+Branch : dll
+Supported Methods :
+insert(val) will insert the value 'val' at the head of the list
     append(val) will append the value 'val' at the tail of the list
     pop() will pop the first value off the head of the list and return it.
     shift() will remove the last value from the tail of the list and return it.

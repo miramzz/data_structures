@@ -1,4 +1,3 @@
-data_structures
-===============
+<h4>Python Implementation of data structures</h5>
 
-Python implementations of data structures
+<h5>Singly Link List</h5>

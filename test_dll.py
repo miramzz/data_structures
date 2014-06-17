@@ -1,6 +1,4 @@
 #!/usr/bin/python
-
-
 import dll
 
 
@@ -8,11 +6,16 @@ def test_string():
     l = dll.doublyll(7)
     assert str(l) == "(7)"
 
+
 def test_init():
-    try :
-        x = dll.doublyll()
-    except TypeError :
+    try:
+        dll.doublyll()
+    except TypeError:
         print u"Passed init test"
+    l = dll.doublyll(4)
+    assert l.head.getdata() == l.tail.getdata()
+    assert l.head.getdata() == 4
+
 
 def test_insert():
     l = dll.doublyll(7)
@@ -32,6 +35,7 @@ def test_insert():
 
     print u'Insert tests passed'
 
+
 def test_pop():
     l = dll.doublyll(7)
     l.insert(5)
@@ -40,8 +44,9 @@ def test_pop():
     assert l.head == l.tail
     assert l.head.getdata() == 7
     assert l.pop() == 7
-    assert l.pop() == None
+    assert l.pop() is None
     print u"Pop method tests passed"
+
 
 def test_shift():
     l = dll.doublyll(7)
@@ -55,6 +60,7 @@ def test_shift():
     assert l.head.getdata() == 7
     assert l.tail == l.head
     assert l._size == 1
+
 
 def test_remove():
     l = dll.doublyll(7)
@@ -72,5 +78,9 @@ def test_remove():
     assert l.head == l.tail
     assert l.head.getdata() == 5
 
-    print u'Passed remove test'
+    try:
+        l.remove(12)
+    except IndexError:
+        print u"'Index error raised - test passed"
 
+    print u'Passed remove test'

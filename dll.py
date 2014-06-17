@@ -2,10 +2,10 @@
 
 
 class Node(object):
-    def __init__(self, value, next_=None, prev=None):
+    def __init__(self, value, next_=None):
         self.value = value
         self.next = next_
-        self.prev = prev
+        self.prev = None
 
     def getdata(self):
         return self.value
@@ -22,7 +22,7 @@ class doublyll(object):
         if self._is_empty():
             self.__init__(value)
             return
-        new_node = Node(value, next_=self.head)
+        new_node = Node(value, self.head)
         self.head.prev, self.head = new_node, new_node
         if self._size == 1:
             self.tail.prev = self.head
@@ -59,8 +59,12 @@ class doublyll(object):
             self._size -= 1
 
     def _findNode(self, val):
+        if self.head.getdata() == val:
+            return self.head
+        if self.tail.getdata() == val:
+            return self.tail
         tmp_node = self.head
-        while True:
+        while tmp_node.next:
             if tmp_node.getdata() == val:
                 return tmp_node
             tmp_node = tmp_node.next
@@ -73,13 +77,12 @@ class doublyll(object):
         if self._is_empty():
             return
         val_node = self._findNode(val)
-        print val_node
+
         if val_node == self.head:
             return self.pop()
         elif val_node == self.tail:
             return self.shift()
         else:
-            print val_node.getdata()
             val_node.prev.next, val_node.next.prev = \
                 val_node.next, val_node.prev
         self._size -= 1

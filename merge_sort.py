@@ -6,12 +6,10 @@ def merge(sort_me, f_index, m_index, l_index):
         if sort_me[m_index]>sort_me[m_index+1]:
             sort_me[m_index], sort_me[m_index+1] = sort_me[m_index+1], sort_me[m_index]
             m_index += 1
-            if m_index == l_index:
-                m_index = tmp_index
-                tmp_index -= 1
-        else:
-            m_index = tmp_index
-            tmp_index -= 1
+            if m_index != l_index:
+                continue
+        m_index = tmp_index
+        tmp_index -= 1
 
 def merge_sort(sort_me, f_index, l_index):
     diff_index = l_index - f_index

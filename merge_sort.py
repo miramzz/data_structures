@@ -22,6 +22,7 @@ def merge_sort(sort_me, f_index, l_index):
         merge(sort_me, f_index, m_index, l_index)
     elif sort_me[f_index]>sort_me[l_index]:
         sort_me[f_index], sort_me[l_index] = sort_me[l_index], sort_me[f_index]
+    return sort_me
 
 def time_track(size):
     import time
@@ -29,23 +30,23 @@ def time_track(size):
     print "Worst Case"
 
     start = time.clock()
-    insertion_sort(a)
+    merge_sort(a, 0, size-1)
     end = time.clock()
-    print "Insertion Worst: %.2gs" % (end-start)
+    print "Merge Worst: %.2gs" % (end-start)
 
     a = [i for i in xrange(size)]
     print "Best Case"
 
     start = time.clock()
-    insertion_sort(a)
+    merge_sort(a, 0, size-1)
     end = time.clock()
-    print "Insertion Best: %.2gs" % (end-start)
+    print "Merge Best: %.2gs" % (end-start)
 
 
 if __name__ == '__main__':
-    # size = 20000
-    # print "Size: "+str(size)
-    # time_track(size)
+    size = 2000
+    print "Size: "+str(size)
+    time_track(size)
 
     sort_me = [5,4,1,13,8,7,2,6,3]
     merge_sort(sort_me, 0, 8)

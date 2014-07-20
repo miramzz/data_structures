@@ -1,5 +1,6 @@
 import pytest
 from insertion_sort import insertion_sort
+from merge_sort import merge_sort, merge
 
 
 
@@ -16,3 +17,9 @@ def test_insertion(build_list):
     x, y, a, b = build_list
     assert insertion_sort(x) == y
     assert insertion_sort(a) == b
+
+
+def test_insertion(build_list):
+    x, y, a, b = build_list
+    assert merge_sort(x,0,9) == y
+    assert merge_sort(a,0,9) == b

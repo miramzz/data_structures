@@ -76,9 +76,64 @@ class BST(object):
         self._rotations.get(insert_location)
         self._balance = 0
 
+    def _find_node(self, data):
+        tmp = self._root
+        tmp_parent = None
+        while True:
+            if val < tmp._data:
+                tmp_parent = tmp
+                tmp = tmp._left
+            elif val > tmp._data:
+                tmp_parent = tmp
+                tmp = tmp._right
+            else:
+                return tmp, tmp_parent
+            if tmp is None:
+                raise IndexError
+
+
     def _deletion(self, data):
         if not self._root:
             return
+        root_data = self._root._data
+        my_node, my_parent = self._find_node(data)
+        if my_node._left and my_node._right:
+            my_tmp = my_node._right
+            if my_tmp._left:
+                while my_tmp._left._left:
+                    my_tmp = my_tmp._left
+                my_node._data = my_tmp._left._data
+                if my_tmp._left._right:
+                    my_tmp._left = my_tmp._left._right
+                else:
+                    my_tmp._left = None
+            else:
+                my_tmp._left = my_node._left
+                if self._root == my_node:
+                    self._root = my_tmp
+                else:
+                    my_parent._left = my_tmp
+        else:
+            del_node = None
+            if not my_node._left and not my_node._right:
+                del_node = None
+            elif not my_node._right:
+                del_node = my_node._left
+            else:
+                del_node = my_node._right
+            if my_parent._left == my_node:
+                my_parent._left = del_node
+            else:
+                my_parent._right = del_node
+
+        if data < root_data and self._balance == 1:
+            self._rotations.get(0)
+            self._balance = 0
+        elif data >= root_data and self._balance == -1:
+            self._rotations.get(3)
+            self._balance = 0
+
+
 
 
 

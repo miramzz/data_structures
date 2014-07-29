@@ -62,19 +62,25 @@ class BST(object):
             else:
                 if not parent._right:
                     parent._right = Node(data)
-                parent = parent._right
-                if counter < 4:
+                elif counter <= 4:
                     insert_location  |= counter
+                parent = parent._right
             counter = counter << 1
 
-        # check if there is 2 iterations
-        if counter < 4:
+        # check if there are 2 iterations
+        if counter <= 4:
             return
         self._balance -= 1 if insert_location & 1 else : self._balance += 1
         if -2 < self._balance < 2 :
             return
         self._rotations.get(insert_location)
         self._balance = 0
+
+    def _deletion(self, data):
+        if not self._root:
+            return
+
+
 
 
 

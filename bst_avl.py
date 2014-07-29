@@ -29,9 +29,18 @@ class BST(object):
 
     def _rotate_rr(self):
         new_root = self._root._right
-        pass
+        new_left = self._root
+        new_left._right, new_root._left = new_root._left, new_left
+        self._root = new_root
+
     def _rotate_rl(self):
-        pass
+        # first right then left
+        new_root = self._root._right._left
+        new_right = self._root._right
+        new_left = self._root
+        new_left._right, new_root._left = new_root._left, new_left
+        new_right._left, new_root._right = new_root._right, new_root._right
+
 
 # XY
 # 1->right, 0->left
@@ -61,7 +70,7 @@ class BST(object):
         # check if there is 2 iterations
         if counter < 4:
             return
-        self._rotations(insert_location)
+        self._rotations.get(insert_location)
 
 
 

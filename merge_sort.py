@@ -50,6 +50,15 @@ if __name__ == '__main__':
     merge_sort(sort_me, 0, 8)
     for item in sort_me:
         print item,
+    print
+    unsort = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+    sort = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    unsort_repeated = [10, 9, 10, 9, 10, 9, 10, 9, 10, 9]
+    sorted_repeated = [9, 9, 9, 9, 9, 10, 10, 10, 10, 10]
+    merge_sort(unsort, 0, 9)
+    merge_sort(unsort_repeated, 0, 9)
+    print unsort == sort
+    print unsort_repeated == sorted_repeated
 
 
 

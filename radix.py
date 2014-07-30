@@ -75,13 +75,13 @@ if __name__ == '__main__':
     for item in new_list:
         print item,
 
-    # print
-    # unsort = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
-    # sort = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-    # unsort_repeated = [10, 9, 10, 9, 10, 9, 10, 9, 10, 9]
-    # sorted_repeated = [9, 9, 9, 9, 9, 10, 10, 10, 10, 10]
+    print
+    unsort = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+    sort = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    unsort_repeated = [10, 9, 10, 9, 10, 9, 10, 9, 10, 9]
+    sorted_repeated = [9, 9, 9, 9, 9, 10, 10, 10, 10, 10]
 
-    # radix_sort(unsort)
-    # radix_sort(unsort_repeated)
-    # print unsort == sort
-    # print unsort_repeated == sorted_repeated
+    unsort = radix_sort(unsort)
+    unsort_repeated = radix_sort(unsort_repeated)
+    print unsort == sort
+    print unsort_repeated == sorted_repeated
